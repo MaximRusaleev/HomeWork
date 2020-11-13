@@ -1,3 +1,5 @@
+package com.homework;
+
 /* Вычисление k-го символа строки из натуральных чисел*/
 
 import java.util.Scanner;
@@ -5,40 +7,40 @@ import java.util.Scanner;
 public class Kth {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        long k = in.nextLong();
+        long numeralInNumber = in.nextLong();
         long step = 0; //степень десятки
-        long r = 1; //количество цифр в числе
-        long sum = -1; //длина строки, составленная из чисел состоящих от 1 до r цифр
+        long lengthNumber = 1; //количество цифр в числе
+        long sum = -1; //длина строки, составленная из чисел состоящих от 1 до lengthNumber цифр
         long res; //число с необходимым элементом
         long delta = 0; //приращение до числа
 
-        while ((sum += 9 * r * Math.pow(10, step)) < k) {
-            r++;
+        while ((sum += 9 * lengthNumber * Math.pow(10, step)) < numeralInNumber) {
+            lengthNumber++;
             step++;
         }
 
         long i = 0;
         long j = 0;
-        while (i < r - 1) {
+        while (i < lengthNumber - 1) {
             j += 9 * Math.pow(10, i);
             delta += j;
             i++;
         }
 
         long place; //место элемента в числе (справа на лево)
-        res = (k + delta) / r + 1;
-        place = (res * r - delta) - k;
+        res = (numeralInNumber + delta) / lengthNumber + 1;
+        place = (res * lengthNumber - delta) - numeralInNumber;
 
         System.out.println("Символ: " + findNumeralInNumber(res, place));
     }
 
-    public static long findNumeralInNumber(long num, long place) {
+    public static long findNumeralInNumber(long number, long place) {
         long i = 1;
-        long t = 0;
+        long numeral = 0;
         while (i++ <= place) {
-            t = num % 10;
-            num = (num - t) / 10;
+            numeral = number % 10;
+            number = (number - numeral) / 10;
         }
-        return t;
+        return numeral;
     }
 }

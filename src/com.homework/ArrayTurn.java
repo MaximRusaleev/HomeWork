@@ -1,14 +1,16 @@
+package com.homework;
+
 /* Написать функцию, которая переворачивает массив, размерностью 8*/
 
 public class ArrayTurn {
 
     public static int[] arrayTurn(int[] arr) {
         int len = arr.length;
-        int t;
+        int interValue;
         for (int i = 0; i < len / 2; i++) {
-            t = arr[i];
+            interValue = arr[i];
             arr[i] = arr[len - 1 - i];
-            arr[len - 1 - i] = t;
+            arr[len - 1 - i] = interValue;
         }
         return arr;
     }

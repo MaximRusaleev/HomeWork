@@ -1,3 +1,5 @@
+package com.homework;
+
 /* Написать функцию, которая убирает одинаковые значения из списка */
 
 import java.util.ArrayList;
@@ -6,8 +8,8 @@ public class ListWithoutDouble {
 
     public static ArrayList<Integer> delDouble(ArrayList<Integer> arr) {
         for (int i = 0; i < arr.size(); i++) {
-            for(int j = i + 1; j < arr.size(); j++){
-                if (arr.get(i) == arr.get(j)){
+            for (int j = i + 1; j < arr.size(); j++) {
+                if (arr.get(i) == arr.get(j)) {
                     arr.remove(j--);
                 }
             }
